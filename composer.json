@@ -1,0 +1,6 @@
+{
+    "require": {
+        "mf2/mf2": "^0.4.6",
+        "indieweb/mention-client": "^1.2"
+    }
+}
