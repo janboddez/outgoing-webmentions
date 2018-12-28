@@ -7,7 +7,6 @@
  * Author URI: https://janboddez.tech/
  * License: GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Textdomain: outgoing-webmentions
  * Version: 0.1
  */
 
@@ -30,7 +29,6 @@ class Outgoing_Webmentions {
 	 */
 	public function __construct() {
 		add_action( 'publish_post', array( $this, 'send_webmention' ), 10, 2 );
-		add_action( 'plugins_loaded', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
