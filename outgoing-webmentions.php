@@ -14,7 +14,7 @@
 defined( 'ABSPATH' ) or exit;
 
 // Load Composer's autoloader.
-require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 /**
  * Main plugin class.
@@ -58,7 +58,7 @@ class Outgoing_Webmentions {
 
 			if ( $endpoint ) {
 				// Send the webmention.
-				$response = wp_safe_remote_post( $endpoint, array(
+				$response = wp_safe_remote_post( esc_url_raw( $endpoint ), array(
 					'body'=> array(
 						'source' => rawurlencode( get_permalink( $post_id ) ),
 						'target' => rawurlencode( $url ),
