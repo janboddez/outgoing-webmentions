@@ -40,6 +40,11 @@ class Outgoing_Webmentions {
 	 * @since 0.1
 	 */
 	public function send_webmention( $post_id, $post ) {
+		// Prevent double posting.
+		if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+			return;
+		}
+
 		// Init Webmention Client.
 		$client = new IndieWeb\MentionClient();
 
